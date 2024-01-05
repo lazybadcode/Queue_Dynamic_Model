@@ -1,0 +1,21 @@
+db:
+  username: "user"
+  password: "password"
+  url: "localhost"
+  port: "27017"
+  table_name: "test"
+  coll_user: "users"
+  coll_queue: "queues"
+  coll_special_day: "special_days"
+
+usecase:
+  queue_per_slot: 1 # normal day
+  queue_per_slot_day_off: 1 # saturday and sunday
+  queue_per_slot_special_day: 1 # day in table special_days
+  slot_duration: "60m"
+  start_time: "8h"
+  close_time: "18h"
+  max_day_for_queue: 10 # max day can reserve queue, count start at tomorrow
+  max_retry_reserve: 10
+  batch:
+    send_sms_time: "22h0m" # send sms at 22:00, if want to send 22:30 change it to 22h30m

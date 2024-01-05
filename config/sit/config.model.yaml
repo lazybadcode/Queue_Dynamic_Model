@@ -1,0 +1,96 @@
+queue:
+  _id:
+    type: String
+    fixedName: true
+  userId:
+    type: String
+    fixedName: true
+  no:
+    type: Int
+    fixedName: true
+  date:
+    type: String
+    fixedName: true
+  slot:
+    type: Int
+    fixedName: true
+  note:
+    type: String
+  note2:
+    type: String
+    fixedName: false
+  testFloat:
+    type: Float
+  testBoolean:
+    type: Boolean
+  updatedTime:
+    type: DateTime
+    fixedName: true
+  createdTime:
+    type: DateTime
+    fixedName: true
+  user:
+    type: User
+    fixedName: true
+
+user:
+  _id:
+    type: String
+    fixedName: true
+  name:
+    type: String
+  idCard:
+    type: String
+    fixedName: true
+  mobileNo:
+    type: String
+    fixedName: true
+  updatedTime:
+    type: DateTime
+    fixedName: true
+  createdTime:
+    type: DateTime
+    fixedName: true
+
+### CANNOT CHANGE query and mutation ###
+query:
+  fields:
+    queue:
+      args:
+        input:
+          type: Queue
+      returnType: [Queue]
+
+mutation:
+  fields:
+    createQueue:
+      args:
+        idCard:
+          type: String
+          required: true
+        mobileNo:
+          type: String
+          required: true
+        input:
+          type: Queue
+      returnType: Queue
+    updateQueue:
+      args:
+        id:
+          type: String
+          required: true
+        date:
+          type: String
+          required: true
+        slot:
+          type: Int
+          required: true
+        input:
+          type: Queue
+      returnType: Queue
+    deleteQueue:
+      args:
+        id:
+          type: String
+          required: true
+      returnType: Queue
